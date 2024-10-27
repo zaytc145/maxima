@@ -1,0 +1,16 @@
+{
+    "name": "zayts/hw_6",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Zayts\\Hw6\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Danil Zaytsev",
+            "email": "zaytsevdanil@yandex.ru"
+        }
+    ],
+    "require": {}
+}
