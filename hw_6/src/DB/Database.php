@@ -31,4 +31,9 @@ class Database
         $query->execute($params);
         return $query;
     }
+
+    public function lastInsertId()
+    {
+        return $this->pdo->lastInsertId();
+    }
 }

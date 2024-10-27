@@ -2,8 +2,8 @@
 
 echo "<html lang='ru'>
      <body>
-       <h1>email</h1>
-       <form method='post' action='../login.php'>
+       <h1>Login</h1>
+       <form method='post' action='src/login.php'>
        <div>
             <label for='email'>email</label>
            <input id='email' type='text' name='email' placeholder='Enter email'>

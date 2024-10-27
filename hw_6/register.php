@@ -2,8 +2,8 @@
 
 echo "<html lang='en'>
      <body>
-       <h1>register</h1>
-       <form method='post' action='../register.php'>
+       <h1>Register</h1>
+       <form method='post' action='src/register.php'>
           <div>
             <label for='firstName'>First name</label>
            <input id='firstName' type='text' name='firstName' placeholder='Enter first name'>
@@ -20,7 +20,7 @@ echo "<html lang='en'>
             <label for='password'>password</label>
            <input id='password' type='password' name='password' placeholder='Enter password'>
         </div>
-        <button type='submit'>Login</button>
+        <button type='submit'>register</button>
        </form>
      </body>
    </html>";
