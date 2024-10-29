@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-use Zayts\Hw6\DB\Database;
-
 $userId = $_GET['user_id'];
 
 $user = \Zayts\Hw6\Models\User::find($userId);
@@ -12,9 +10,9 @@ $tasksHtml = "";
 foreach ($tasks as $task) {
     $tasksHtml = "
         <ul>
-           <li>
-           <a>$tasks->name</a>
-           <form method='post' action='src/deleteTask.php'><button>delete</button></form>
+           <li style='display: flex; justify-content: space-between'>
+           <a href='updateTask.php?user_id=$userId&task_id=$task->id'>$task->title</a>
+           <form method='post' action='src/Tasks/delete.php?user_id=$userId&task_id=$task->id'><button type='submit'>delete</button></form>
            </li> 
         </ul>
     " . $tasksHtml;
@@ -27,7 +25,7 @@ echo "<html lang='ru'>
         <h1>Фамилия: $user->last_name</h1>
         <h1>Email: $user->email</h1>
        </div>
-       <a href='http://127.0.0.1:9000/createTask.php'>create task</a>
+       <a href='createTask.php?user_id=$userId'>create task</a>
        <div style='border: 1px solid black; padding: 5px'>
            $tasksHtml
        </div>

@@ -65,13 +65,24 @@ class Model
     {
         $table = static::$table;
         $id = $this->id;
-        return Database::getConnection()->execute("select * from users", $params)->fetchAll();
+
+        $columns = array_keys($params);
+        $placeholders = array_map(fn($key) => "$key = ?", $columns);
+        $paramsString = implode(', ', $placeholders);
+
+        Database::getConnection()->execute(
+            "UPDATE $table SET $paramsString WHERE id = ?",
+            [...array_values($params), $id]
+        );
+
+        return static::find($id);
     }
 
-    public function delete($id)
+    public function delete()
     {
+        $id = $this->id;
         $table = static::$table;
-        return Database::getConnection()->query()->exec();
+        return Database::getConnection()->execute("DELETE FROM $table WHERE id = $id");
     }
 
     private static function transformParams($params)
