@@ -11,4 +11,4 @@ $user = User::create([
     'password' => $_POST['password'],
 ]);
 
-header("Location: http://127.0.0.1:9000/index.php?user_id=$user->id");
+header("Location: http://127.0.0.1:9000/index.php");

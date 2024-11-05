@@ -1,4 +1,10 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
+$isAuth = \Zayts\Hw6\Auth::check();
+if ($isAuth) {
+    return redirect("/index.php");
+}
 
 echo "<html lang='ru'>
      <body>

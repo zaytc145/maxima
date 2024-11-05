@@ -4,6 +4,11 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 use Zayts\Hw6\Models\Task;
 
+$isAuth = \Zayts\Hw6\Auth::check();
+if (!$isAuth) {
+    return redirect("/login.php");
+}
+
 $taskId = $_GET['task_id'];
 
 $task = Task::find($taskId);
@@ -12,8 +17,6 @@ $task->update([
     'description' => $_POST['description'],
 ]);
 
-$userId = $_GET['user_id'];
-
-header("Location: http://127.0.0.1:9000/index.php?user_id=$userId");
+redirect("/index.php");
 
 

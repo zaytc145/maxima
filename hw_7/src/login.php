@@ -12,7 +12,7 @@ $user = User::where(
 )[0];
 
 if ($user->password === $password) {
-    header("Location: http://127.0.0.1:9000/index.php?user_id=$user->id");
+    header("Location: http://127.0.0.1:9000/index.php");
     return;
 }
 header("Location: http://127.0.0.1:9000/login.php");

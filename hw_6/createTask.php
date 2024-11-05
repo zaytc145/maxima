@@ -1,10 +1,17 @@
 <?php
-$userId = $_GET['user_id'];
+
+require __DIR__ . '/vendor/autoload.php';
+
+
+$isAuth = \Zayts\Hw6\Auth::check();
+if (!$isAuth) {
+    return redirect("/login.php");
+}
 
 echo "<html lang='ru'>
      <body>
        <h1>Create</h1>
-       <form method='post' action='src/Tasks/create.php?user_id=$userId'>
+       <form method='post' action='src/Tasks/create.php'>
        <div>
             <label for='title'>title</label>
            <input id='title' type='text' name='title' placeholder='Enter title'>
