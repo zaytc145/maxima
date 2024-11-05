@@ -19,5 +19,8 @@ Route::post('register', [\App\Http\Controllers\AuthController::class, 'register'
 Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('role:admin')->group(function () {
         Route::apiResource('tasks', \App\Http\Controllers\TaskController::class);
+        Route::get('avatars', [\App\Http\Controllers\AvatarController::class, 'show']);
+        Route::post('avatars', [\App\Http\Controllers\AvatarController::class, 'update']);
+        Route::delete('avatars', [\App\Http\Controllers\AvatarController::class, 'destroy']);
     });
 });
